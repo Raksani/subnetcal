@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CalculatorUIController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="489.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalculatorUIController">
+   <children>
+      <RadioButton layoutX="142.0" layoutY="57.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="39.0" text="A" textAlignment="RIGHT" />
+      <RadioButton layoutX="197.0" layoutY="57.0" mnemonicParsing="false" text="B" />
+      <RadioButton layoutX="244.0" layoutY="57.0" mnemonicParsing="false" text="C" />
+      <TextField layoutX="26.0" layoutY="110.0" />
+      <Label layoutX="25.0" layoutY="89.0" text="IP Address" />
+      <Label layoutX="25.0" layoutY="57.0" text="Network Class" />
+      <Label layoutX="262.0" layoutY="89.0" text="Subnet Mask" />
+      <Label layoutX="28.0" layoutY="219.0" text="Maximum Subnets" />
+      <Label layoutX="262.0" layoutY="152.0" text="Subnet Bits" />
+      <Label layoutX="178.0" layoutY="297.0" text="Host Address Range" />
+      <TextField layoutX="29.0" layoutY="324.0" prefHeight="31.0" prefWidth="434.0" />
+      <Label layoutX="29.0" layoutY="152.0" text="Mask bits" />
+      <Label layoutX="262.0" layoutY="219.0" text="Hosts per Subnet" />
+      <Label layoutX="27.0" layoutY="370.0" text="Subnet ID" />
+      <TextField layoutX="26.0" layoutY="398.0" />
+      <TextField layoutX="263.0" layoutY="398.0" />
+      <Label layoutX="264.0" layoutY="370.0" text="Broadcast Address" />
+      <ComboBox layoutX="28.0" layoutY="178.0" prefHeight="31.0" prefWidth="187.0" />
+      <ComboBox layoutX="28.0" layoutY="245.0" prefHeight="31.0" prefWidth="187.0" />
+      <ComboBox layoutX="263.0" layoutY="110.0" prefHeight="31.0" prefWidth="187.0" />
+      <ComboBox layoutX="264.0" layoutY="178.0" prefHeight="31.0" prefWidth="187.0" />
+      <ComboBox layoutX="264.0" layoutY="245.0" prefHeight="31.0" prefWidth="187.0" />
+      <MenuBar prefHeight="32.0" prefWidth="491.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Subnet Calculator">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
 </AnchorPane>
