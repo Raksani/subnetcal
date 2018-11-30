@@ -28,6 +28,6 @@ public class CalculatorUIController {
     private TextField subnet_id;
     @FXML
     private TextField broadcast_address;
-    
+
 
 }
