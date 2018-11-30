@@ -19,21 +19,19 @@ public class CalculatorUIController {
     @FXML
     private TextField ip_address_4;
     @FXML
-    private ComboBox subnet_mask;
+    private ComboBox assigneddrop;
     @FXML
-    private ComboBox mask_bits;
+    private TextField assignedfield;
     @FXML
-    private ComboBox subnet_bits;
-    @FXML
-    private ComboBox maximum_subnet;
-    @FXML
-    private ComboBox hosts_per_subnet;
-    @FXML
-    private TextField host_address_range;
+    private TextField host_id;
     @FXML
     private TextField subnet_id;
     @FXML
-    private TextField broadcast_address;
+    private TextField mask_bit;
+    @FXML
+    private TextField subnet_mask;
+    @FXML
+    private TextField broadcast;
 
 
 }

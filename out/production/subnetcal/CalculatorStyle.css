@@ -1,64 +1,32 @@
 .root {
-    -fx-background-color: white;
+    -fx-background-image: trasparent;
 }
-#ip_address {
+#ip_address_1 {
     -fx-border-color: grey;
     -fx-background-color: transparent;
     -fx-border-radius: 10px;
 }
+#ip_address_2 {
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+#ip_address_3 {
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+#ip_address_4 {
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+
 
 #subnet_mask{
     -fx-border-color: grey;
     -fx-background-color: transparent;
     -fx-border-radius: 10px;
-}
-
-#mask_bits{
-    -fx-border-color: grey;
-    -fx-background-color: transparent;
-    -fx-border-radius: 10px;
-}
-
-#subnet_bits{
-    -fx-border-color: grey;
-    -fx-background-color: transparent;
-    -fx-border-radius: 10px;
-
-}
-
-#maximum_subnet{
-    -fx-border-color: grey;
-    -fx-background-color: transparent;
-    -fx-border-radius: 10px;
-}
-
-#hosts_per_subnet{
-    -fx-border-color: grey;
-    -fx-background-color: transparent;
-    -fx-border-radius: 10px;
-}
-
-#host_address_range{
-    -fx-border-color: grey;
-    -fx-background-color: transparent;
-    -fx-border-radius: 10px;
-}
-
-#subnet_id{
-    -fx-border-color: grey;
-    -fx-background-color: transparent;
-    -fx-border-radius: 10px;
-}
-
-#broadcast_address{
-    -fx-border-color: grey;
-    -fx-background-color: transparent;
-    -fx-border-radius: 10px;
-}
-
-#subnet {
-    -fx-font-size: 20px;
-    -fx-background-color: lightblue;
 }
 
 #classA{
@@ -88,8 +56,4 @@
 #classC:hover{
     -fx-border-color: grey;
     -fx-background-color: #c4e2f3;
-}
-
-#subnet{
-    -fx-max-width: max;
 }
