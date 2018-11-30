@@ -1,17 +1,23 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class CalculatorUIController {
     @FXML
-    private RadioButton classA;
+    private Button classA;
     @FXML
-    private RadioButton classB;
+    private Button classB;
     @FXML
-    private RadioButton classC;
+    private Button classC;
     @FXML
-    private TextField ip_address;
+    private TextField ip_address_1;
+    @FXML
+    private TextField ip_address_2;
+    @FXML
+    private TextField ip_address_3;
+    @FXML
+    private TextField ip_address_4;
     @FXML
     private ComboBox subnet_mask;
     @FXML
