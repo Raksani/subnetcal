@@ -1,5 +1,13 @@
 .root {
-    -fx-background-image: trasparent;
+    -fx-background-color: transparent;
+    -fx-font-family: "Segoe UI Light";
+}
+
+
+#subnet{
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-color: #b9d7f2;
+    -fx-font-size: 20px;
 }
 #ip_address_1 {
     -fx-border-color: grey;
@@ -22,38 +30,152 @@
     -fx-border-radius: 10px;
 }
 
+#ip_address_1:hover {
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+#ip_address_2:hover  {
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+#ip_address_3:hover  {
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+#ip_address_4:hover  {
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+
+#ip_address_1:selected{
+    -fx-border-color: lightblue;
+    -fx-border-radius: 16px;
+
+}
+#classA{
+    -fx-background-color: transparent;
+    -fx-border-color: grey;
+}
+
+#classB{
+    -fx-background-color: transparent;
+    -fx-border-color: grey;
+}
+
+#classC{
+    -fx-background-color: transparent;
+    -fx-border-color: grey;
+}
+#classA:hover{
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+
+#classB:hover{
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+
+#classC:hover{
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+
+#classA:selected{
+    -fx-border-radius: 10px;
+}
+
+#assignedfield{
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
 
 #subnet_mask{
     -fx-border-color: grey;
     -fx-background-color: transparent;
     -fx-border-radius: 10px;
 }
-
-#classA{
-    -fx-background-color: transparent;
-    -fx-border-color: lightblue;
-}
-
-#classB{
-    -fx-background-color: transparent;
-    -fx-border-color: lightblue;
-}
-
-#classC{
-    -fx-background-color: transparent;
-    -fx-border-color: lightblue;
-}
-#classA:hover{
+#host_id{
     -fx-border-color: grey;
-    -fx-background-color: #c4e2f3;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+#subnet_id{
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
 }
 
-#classB:hover{
+#mask_bit{
     -fx-border-color: grey;
-    -fx-background-color: #c4e2f3;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
 }
 
-#classC:hover{
+#broadcast{
     -fx-border-color: grey;
-    -fx-background-color: #c4e2f3;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+
+#assigneddrop{
+    -fx-border-color: grey;
+    -fx-background-color: #d4f1ff;
+    -fx-border-radius: 10px;
+
+}
+
+
+#assignedfield:hover{
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+
+#subnet_mask:hover {
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+
+
+#host_id:hover{
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+#subnet_id:hover{
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+
+#mask_bit:hover{
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+
+#broadcast:hover{
+    -fx-border-color: grey;
+    -fx-background-color: white;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
 }
