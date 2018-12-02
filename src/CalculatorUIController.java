@@ -29,5 +29,10 @@ public class CalculatorUIController {
     @FXML
     private TextField broadcast_address;
 
+    public void initiallize () {
+
+    }
+
+
 
 }
