@@ -7,18 +7,19 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="494.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalculatorUIController">
+<AnchorPane prefHeight="603.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalculatorUIController">
    <children>
-      <ImageView fitHeight="561.0" fitWidth="505.0" focusTraversable="true" layoutX="-13.0" layoutY="-60.0" opacity="0.54" pickOnBounds="true" smooth="false">
+      <ImageView fitHeight="567.0" fitWidth="509.0" focusTraversable="true" layoutX="-13.0" layoutY="-1.0" opacity="0.54" pickOnBounds="true" smooth="false">
          <image>
             <Image url="@1.jpg" />
          </image>
       </ImageView>
-      <MenuBar fx:id="subnet" prefHeight="38.0" prefWidth="491.0">
+      <MenuBar fx:id="subnet" prefHeight="39.0" prefWidth="496.0">
         <menus>
           <Menu mnemonicParsing="false" text="Subnet Calculator">
             <items>
@@ -27,27 +28,41 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextField fx:id="ip_address_1" layoutX="28.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
+      <TextField fx:id="ip_address_1" layoutX="28.0" layoutY="131.0" onInputMethodTextChanged="#errorInput" prefHeight="31.0" prefWidth="47.0" />
       <Label layoutX="27.0" layoutY="106.0" text="IP Address" />
       <Label layoutX="25.0" layoutY="62.0" text="Network Class" />
       <Label layoutX="262.0" layoutY="106.0" text="Assigned" />
-      <Button fx:id="classA" layoutX="152.0" layoutY="57.0" mnemonicParsing="false" text="A" />
-      <Button fx:id="classB" layoutX="200.0" layoutY="57.0" mnemonicParsing="false" text="B" />
-      <Button fx:id="classC" layoutX="247.0" layoutY="57.0" mnemonicParsing="false" text="C" />
       <TextField fx:id="ip_address_2" layoutX="78.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
       <TextField fx:id="ip_address_3" layoutX="128.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
+<<<<<<< HEAD
       <TextField fx:id="ip_address_4" layoutX="178.0" layoutY="131.0" onMouseEntered="#inputIP" prefHeight="31.0" prefWidth="47.0" />
+=======
+      <TextField fx:id="ip_address_4" layoutX="178.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
+>>>>>>> 705997e7f41f1a1867a73b94c0e5afe2735eeb7f
       <Label layoutX="26.0" layoutY="189.0" text="Host ID Bits" />
       <Label layoutX="27.0" layoutY="260.0" text="Subnet ID Bits" />
       <Label layoutX="28.0" layoutY="339.0" text="Mask bit" />
       <Label layoutX="263.0" layoutY="338.0" text="Subnet mask" />
+<<<<<<< HEAD
       <TextField fx:id="host_id" layoutX="26.0" layoutY="210.0" prefHeight="31.0" prefWidth="126.0" />
       <TextField fx:id="subnet_id" layoutX="26.0" layoutY="281.0" prefHeight="31.0" prefWidth="126.0" />
+=======
+      <TextField fx:id="host_id" layoutX="26.0" layoutY="210.0" prefHeight="39.0" prefWidth="450.0" />
+      <TextField fx:id="subnet_id" layoutX="26.0" layoutY="281.0" prefHeight="39.0" prefWidth="450.0" />
+>>>>>>> 705997e7f41f1a1867a73b94c0e5afe2735eeb7f
       <TextField fx:id="mask_bit" layoutX="26.0" layoutY="360.0" />
       <TextField fx:id="subnet_mask" layoutX="263.0" layoutY="360.0" />
-      <TextField fx:id="broadcast" layoutX="26.0" layoutY="433.0" prefHeight="31.0" prefWidth="426.0" />
+      <TextField fx:id="broadcast" layoutX="26.0" layoutY="433.0" prefHeight="39.0" prefWidth="450.0" />
       <Label layoutX="25.0" layoutY="412.0" text="Broadcast" />
       <TextField fx:id="assignedfield" layoutX="266.0" layoutY="132.0" prefHeight="31.0" prefWidth="97.0" />
+<<<<<<< HEAD
       <ComboBox fx:id="assigneddrop" layoutX="360.0" layoutY="132.0" prefHeight="31.0" prefWidth="89.0" />
+=======
+      <ComboBox fx:id="assigneddrop" layoutX="367.0" layoutY="132.0" onAction="#selectAssign" prefHeight="39.0" prefWidth="112.0" />
+      <ToggleButton fx:id="classA" layoutX="152.0" layoutY="56.0" mnemonicParsing="false" onAction="#findSubnetIDHostID" prefHeight="39.0" prefWidth="35.0" text="A" />
+      <ToggleButton fx:id="classB" layoutX="202.0" layoutY="56.0" mnemonicParsing="false" onAction="#findSubnetIDHostID" prefHeight="39.0" prefWidth="35.0" text="B" />
+      <ToggleButton fx:id="classC" layoutX="252.0" layoutY="56.0" mnemonicParsing="false" onAction="#findSubnetIDHostID" prefHeight="39.0" prefWidth="35.0" text="C" />
+      <Button fx:id="submit" layoutX="-5.0" layoutY="498.0" mnemonicParsing="false" onAction="#inputIP" prefHeight="54.0" prefWidth="496.0" text="Submit" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+>>>>>>> 705997e7f41f1a1867a73b94c0e5afe2735eeb7f
    </children>
 </AnchorPane>

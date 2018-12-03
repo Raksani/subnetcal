@@ -1,17 +1,19 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 
 import java.util.ArrayList;
 
 public class CalculatorUIController {
     @FXML
-    private Button classA;
+    private ToggleButton classA;
     @FXML
-    private Button classB;
+    private ToggleButton classB;
     @FXML
-    private Button classC;
+    private ToggleButton classC;
     @FXML
     private TextField ip_address_1;
     @FXML
@@ -38,6 +40,8 @@ public class CalculatorUIController {
     private TextField errorClass;
     @FXML
     private TextField errorIP;
+    @FXML
+    private Button submit;
 
     double assign =0.0;
     int subnetID_bits =0, hostID_bits = 0;
@@ -48,64 +52,84 @@ public class CalculatorUIController {
     int classBits_each;
     ArrayList<Integer> subnetMask_each = new ArrayList<Integer>();
 
-
-
-    public void initiallize () {
-        //what to
+    public void initialize(){
+        if (assigneddrop != null) {
+            assigneddrop.getItems().addAll("Machines" , "Subnets");
+            assigneddrop.getSelectionModel().select(0);
+        }
     }
 
+    public void setErrorInput(String error){
 
-    public void setErrorText(String error){
-        if(error.equals("ip")){
-            errorIP.setText("Invalid IP.");
-            errorIP.setStyle("-fx-text-fill: red");
-        }
-        else if (error.equals("class")){
+        if (error.equals("class")){
             errorClass.setText("Please select only one class.");
             errorClass.setStyle("-fx-text-fill: red");
         }
 
+        else {
+            if (ip_address_1.getText().isEmpty() || ip_address_2.getText().isEmpty() || ip_address_3.getText().isEmpty() || ip_address_4.getText().isEmpty()) {
+                ip_address_1.setStyle("-fx-border-color: red");
+                ip_address_2.setStyle("-fx-border-color: red");
+                ip_address_3.setStyle("-fx-border-color: red");
+                ip_address_4.setStyle("-fx-border-color: red");
+
+            }
+            if (ip_address_1.getText().length() > 3 || ip_address_2.getText().length() > 3 || ip_address_3.getText().length() > 3 || ip_address_4.getText().length() > 3) {
+                ip_address_1.setStyle("-fx-border-color: red");
+                ip_address_2.setStyle("-fx-border-color: red");
+                ip_address_3.setStyle("-fx-border-color: red");
+                ip_address_4.setStyle("-fx-border-color: red");
+            } else {
+                ip_address_1.setStyle("-fx-border-color: grey");
+                ip_address_2.setStyle("-fx-border-color: grey");
+                ip_address_3.setStyle("-fx-border-color: grey");
+                ip_address_4.setStyle("-fx-border-color: grey");
+
+            }
+        }
+
     }
+
     public boolean errorInput(){
-        //recheck again.
-        if (classA.isPressed()) {
-            if (classB.isPressed() || classC.isPressed()) {
-                setErrorText("class");
-                return false;
+                //recheck again.
+                if (classA.isSelected()) {
+                    if (classB.isSelected() || classC.isSelected()) {
+                        setErrorInput("class");
+                        return false;
+                    }
+                    classSelect = "a";
+                    subnetMask_each = getSubnetMaskClassA();
+                    classBits_each = 24;
+                }
+
+                if (classB.isSelected()) {
+                    if (classA.isSelected() || classC.isSelected()) {
+                        setErrorInput("class");
+                        return false;
+                    }
+                    classSelect = "b";
+                    subnetMask_each = getSubnetMaskClassB();
+                    classBits_each = 16;
+                }
+
+                if (classC.isSelected()) {
+                    if (classA.isSelected() || classB.isSelected()) {
+                        setErrorInput("class");
+                        return false;
+                    }
+                    classSelect = "c";
+                    subnetMask_each = getSubnetMaskClassC();
+                    classBits_each = 8;
+                }
+                return true;
             }
-            classSelect = "a";
-            subnetMask_each = getSubnetMaskClassA();
-            classBits_each = 24;
-        }
+//    @FXML
+//    public void inputIP(javafx.event.ActionEvent event) {
+//        errorInput(event);
+//
+//    }
 
-        if(classB.isPressed()){
-            if (classA.isPressed() || classC.isPressed()) {
-                setErrorText("class");
-                return false;
-            }
-            classSelect = "b";
-            subnetMask_each = getSubnetMaskClassB();
-            classBits_each = 16;
-        }
-
-        if(classC.isPressed()){
-            if (classA.isPressed() || classB.isPressed()) {
-                setErrorText("class");
-                return false;
-            }
-            classSelect = "c";
-            subnetMask_each = getSubnetMaskClassC();
-            classBits_each = 8;
-        }
-
-        if(ip_address_1.getText().isEmpty()||ip_address_2.getText().isEmpty()||ip_address_3.getText().isEmpty()||ip_address_4.getText().isEmpty()){
-            setErrorText("ip");
-            return false;
-        }
-
-        return true;
-    }
-
+    @FXML
     public void inputIP(){
         //check error
         if(errorInput()){
