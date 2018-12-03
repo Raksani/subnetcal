@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class CalculatorUIController {
@@ -158,17 +159,35 @@ public class CalculatorUIController {
 
 
         }
+        @FXML
+        public void checkSingleClass () {
+        if (classA.isSelected()) {
+            classB.setSelected(false);
+            classC.setSelected(false);
+        }
+        if (classB.isSelected()) {
+            classA.setSelected(false);
+            classC.setSelected(false);
+        }
+        if (classC.isSelected()){
+            classA.setSelected(false);
+            classB.setSelected(false);
+        }
+        else return;
+        }
+
+
 
     @FXML
     public void getSubnetIDHostID(int classBits){
             if (assignSelect.equals("Machines")) {
-                assign = Math.log2(Double.parseDouble(assignText));
+                assign = Math.log(Double.parseDouble(assignText))/Math.log(2);
                 subnetID_bits = (int) (classBits - assign);
                 hostID_bits = (int) assign;
                 host_id.setText(hostID_bits + "");
                 subnet_id.setText(subnetID_bits + "");
             } else {
-                assign = Math.log(Double.parseDouble(assignText));
+                assign = Math.log(Double.parseDouble(assignText))/Math.log(2);
                 subnetID_bits = (int) assign;
                 hostID_bits = (int) (classBits - assign);
                 host_id.setText(hostID_bits + "");
