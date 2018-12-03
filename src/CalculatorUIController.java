@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class CalculatorUIController {
@@ -59,6 +60,7 @@ public class CalculatorUIController {
         }
     }
 
+    @FXML
     public void setErrorInput(String error){
 
         if (error.equals("class")){
@@ -152,7 +154,7 @@ public class CalculatorUIController {
                 subnet_mask.setText(subnet_Mark);
 
                 //show mask bits
-
+                mask_bit.setText(getMaskBit()+"");
 
 
 
@@ -162,7 +164,26 @@ public class CalculatorUIController {
 
 
         }
+        @FXML
+        public void checkSingleClass () {
+        if (classA.isSelected()) {
+            classB.setSelected(false);
+            classC.setSelected(false);
+        }
+        if (classB.isSelected()) {
+            classA.setSelected(false);
+            classC.setSelected(false);
+        }
+        if (classC.isSelected()){
+            classA.setSelected(false);
+            classB.setSelected(false);
+        }
+        else return;
+        }
 
+
+
+    @FXML
     public void getSubnetIDHostID(int classBits){
             if (assignSelect.equals("Machines")) {
                 assign = Math.log(Double.parseDouble(assignText));
@@ -311,16 +332,24 @@ public class CalculatorUIController {
         return subnetMask;
     }
 
-    public void calMaskBit(){
+    public int getMaskBit(){
         ArrayList<String> subnetIP = new ArrayList<>();
+        int allsum=0;
         for(int i=0;i<4;i++){
-        //convert int to binary
-        Integer.toBinaryString(subnetMask_each.indexOf(i));
-        subnetIP.add(Integer.toBinaryString(subnetMask_each.indexOf(i)));
-        
-
+            //convert int to binary
+            String bina = Integer.toBinaryString(subnetMask_each.get(i));
+            System.out.println("bina : " + bina);
+            int sum = 0;
+            int num = Integer.parseInt(bina);
+            System.out.println("num : " + bina);
+            while(num > 0){
+                sum = sum + num % 10;
+                num = num / 10;
+            }
+            System.out.println("sum : " + sum);
+            allsum += sum;
         }
-
+        return allsum;
     }
 
 }
