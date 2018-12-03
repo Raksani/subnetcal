@@ -1,18 +1,19 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class CalculatorUIController {
     @FXML
-    private Button classA;
+    private ToggleButton classA;
     @FXML
-    private Button classB;
+    private ToggleButton classB;
     @FXML
-    private Button classC;
+    private ToggleButton classC;
     @FXML
     private TextField ip_address_1;
     @FXML
@@ -39,50 +40,82 @@ public class CalculatorUIController {
     private TextField errorClass;
     @FXML
     private TextField errorIP;
+    @FXML
+    private Button submit;
 
     int classBits=0;
     double assign =0.0;
     int subnetID_bits =0, hostID_bits = 0;
     ArrayList<Integer> subnetMask = new ArrayList<Integer>();
 
-    public void initiallize () {
-
+    public void initialize () {
+        if (assigneddrop != null) {
+            assigneddrop.getItems().addAll("Machines" , "Subnets");
+            assigneddrop.getSelectionModel().select(0);
+        }
     }
 
     public void errorInput(ActionEvent action){
         //recheck again.
-            errorClass.setText("Please select only one class.");
-            errorClass.setStyle("-fx-text-fill: red");
+//            errorClass.setText("Please select only one class.");
+//            errorClass.setStyle("-fx-text-fill: red");
 
         if(ip_address_1.getText().isEmpty()||ip_address_2.getText().isEmpty()||ip_address_3.getText().isEmpty()||ip_address_4.getText().isEmpty()){
-            errorIP.setText("Invalid IP.");
-            errorIP.setStyle("-fx-text-fill: red");
+//            errorIP.setText("Invalid IP.");
+//            errorIP.setStyle("-fx-text-fill: red");
+            ip_address_1.setStyle("-fx-border-color: red");
+            ip_address_2.setStyle("-fx-border-color: red");
+            ip_address_3.setStyle("-fx-border-color: red");
+            ip_address_4.setStyle("-fx-border-color: red");
+
+        }
+        if(ip_address_1.getText().length() > 3 || ip_address_2.getText().length() > 3 || ip_address_3.getText().length() > 3 || ip_address_4.getText().length() > 3 ) {
+            ip_address_1.setStyle("-fx-border-color: red");
+            ip_address_2.setStyle("-fx-border-color: red");
+            ip_address_3.setStyle("-fx-border-color: red");
+            ip_address_4.setStyle("-fx-border-color: red");
+        }
+        else {
+            ip_address_1.setStyle("-fx-border-color: grey");
+            ip_address_2.setStyle("-fx-border-color: grey");
+            ip_address_3.setStyle("-fx-border-color: grey");
+            ip_address_4.setStyle("-fx-border-color: grey");
         }
     }
 
-    public void findSubnetIDHostID(ActionEvent event) {
+    public void findSubnetIDHostID() {
         classBits = 24;
-        if (classA.isPressed()) {
-            if (classB.isPressed() || classC.isPressed()) {
-                errorInput(event);
-            } else {
-                selectAssign();
-            }
+        if (classA.isSelected()) {
+                classB.setSelected(false);
+                classC.setSelected(false);
+//                selectAssign();
+//            } else {
+//                selectAssign();
+
         }
-        if(classB.isPressed()){
-            if (classA.isPressed() || classC.isPressed()) {
-                errorInput(event);
-            } else {
-                selectAssign();
-            }
+        if(classB.isSelected()){
+                classA.setSelected(false);
+                classC.setSelected(false);
+
+//                selectAssign();
+//            } else {
+//                selectAssign();
+//            }
         }
-        if(classB.isPressed()){
-            if (classA.isPressed() || classC.isPressed()) {
-                errorInput(event);
-            } else {
-                selectAssign();
-            }
+        if(classC.isSelected()){
+                classA.setSelected(false);
+                classB.setSelected(false);
+
+//                selectAssign();
+//            } else {
+//                selectAssign();
+//            }
         }
+    }
+    @FXML
+    public void inputIP(javafx.event.ActionEvent event) {
+        errorInput(event);
+
     }
 
     public void selectAssign(){
@@ -219,5 +252,6 @@ public class CalculatorUIController {
         }
         return subnetMask;
     }
+
 
 }
