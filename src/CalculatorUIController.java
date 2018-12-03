@@ -93,6 +93,7 @@ public class CalculatorUIController {
 
     public boolean errorInput(){
                 //recheck again.
+                subnetMask_each.clear();
                 if (classA.isSelected()) {
                     if (classB.isSelected() || classC.isSelected()) {
                         setErrorInput("class");
@@ -144,7 +145,8 @@ public class CalculatorUIController {
                 //show subnet mask.
                 String subnet_Mark = "";
                 for(int i=0;i<4;i++){
-                    subnet_Mark += subnetMask_each;
+                    subnet_Mark += subnetMask_each.get(i);
+                    if(i<3) subnet_Mark += ",";
                 }
                 subnet_mask.setText(subnet_Mark);
 
@@ -181,7 +183,7 @@ public class CalculatorUIController {
     @FXML
     public void getSubnetIDHostID(int classBits){
             if (assignSelect.equals("Machines")) {
-                assign = Math.log(Double.parseDouble(assignText))/Math.log(2);
+                assign = Math.ceil(Math.log(Double.parseDouble(assignText))/Math.log(2));
                 subnetID_bits = (int) (classBits - assign);
                 hostID_bits = (int) assign;
                 host_id.setText(hostID_bits + "");
