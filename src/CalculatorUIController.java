@@ -93,6 +93,7 @@ public class CalculatorUIController {
 
     public boolean errorInput(){
                 //recheck again.
+                subnetMask_each.clear();
                 if (classA.isSelected()) {
                     if (classB.isSelected() || classC.isSelected()) {
                         setErrorInput("class");
@@ -132,6 +133,8 @@ public class CalculatorUIController {
 
     @FXML
     public void inputIP(){
+        subnetMask_each.clear();
+        System.out.println(subnetMask_each.toString());
         //check error
         if(errorInput()){
            //collect input data.
@@ -144,7 +147,8 @@ public class CalculatorUIController {
                 //show subnet mask.
                 String subnet_Mark = "";
                 for(int i=0;i<4;i++){
-                    subnet_Mark += subnetMask_each;
+                    subnet_Mark += subnetMask_each.get(i);
+
                 }
                 subnet_mask.setText(subnet_Mark);
 
@@ -181,7 +185,7 @@ public class CalculatorUIController {
     @FXML
     public void getSubnetIDHostID(int classBits){
             if (assignSelect.equals("Machines")) {
-                assign = Math.log(Double.parseDouble(assignText))/Math.log(2);
+                assign = (Math.log(Double.parseDouble(assignText))/Math.log(2));
                 subnetID_bits = (int) (classBits - assign);
                 hostID_bits = (int) assign;
                 host_id.setText(hostID_bits + "");
@@ -197,6 +201,7 @@ public class CalculatorUIController {
 
     public ArrayList<Integer> getSubnetMaskClassC(){
         ArrayList<Integer> subnetMask = new ArrayList<Integer>();
+        subnetMask.clear();
         //add first 3.
         subnetMask.add(255);
         subnetMask.add(255);
@@ -229,6 +234,7 @@ public class CalculatorUIController {
 
     public ArrayList<Integer> getSubnetMaskClassB(){
         ArrayList<Integer> subnetMask = new ArrayList<Integer>();
+        subnetMask.clear();
         int last = 0;
         int third = 0;
         //add first 2.
@@ -269,6 +275,7 @@ public class CalculatorUIController {
 
     public ArrayList<Integer> getSubnetMaskClassA() {
         ArrayList<Integer> subnetMask = new ArrayList<Integer>();
+        subnetMask.clear();
         int last = 0;
         int third = 0;
         int second = 0;

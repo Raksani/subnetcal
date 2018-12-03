@@ -28,7 +28,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextField fx:id="ip_address_1" layoutX="28.0" layoutY="131.0" onInputMethodTextChanged="#errorInput" prefHeight="31.0" prefWidth="47.0" />
+      <TextField fx:id="ip_address_1" layoutX="28.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
       <Label layoutX="27.0" layoutY="106.0" text="IP Address" />
       <Label layoutX="25.0" layoutY="62.0" text="Network Class" />
       <Label layoutX="262.0" layoutY="106.0" text="Assigned" />
