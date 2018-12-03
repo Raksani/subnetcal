@@ -45,7 +45,6 @@ public class CalculatorUIController {
 
     double assign =0.0;
     int subnetID_bits =0, hostID_bits = 0;
-    int ip1,ip2,ip3,ip4 =0;
     String classSelect;
     String assignSelect;
     String assignText;
@@ -135,10 +134,6 @@ public class CalculatorUIController {
         //check error
         if(errorInput()){
            //collect input data.
-            ip1 = Integer.parseInt(ip_address_1.getText());
-            ip2 = Integer.parseInt(ip_address_2.getText());
-            ip3 = Integer.parseInt(ip_address_3.getText());
-            ip4 = Integer.parseInt(ip_address_4.getText());
             assignSelect = assigneddrop.getSelectionModel().getSelectedItem().toString();
             assignText = assignedfield.getText();
 
@@ -167,7 +162,7 @@ public class CalculatorUIController {
     @FXML
     public void getSubnetIDHostID(int classBits){
             if (assignSelect.equals("Machines")) {
-                assign = Math.log(Double.parseDouble(assignText));
+                assign = Math.log2(Double.parseDouble(assignText));
                 subnetID_bits = (int) (classBits - assign);
                 hostID_bits = (int) assign;
                 host_id.setText(hostID_bits + "");
