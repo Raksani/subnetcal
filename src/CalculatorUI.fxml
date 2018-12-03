@@ -36,7 +36,7 @@
       <Button fx:id="classC" layoutX="247.0" layoutY="57.0" mnemonicParsing="false" text="C" />
       <TextField fx:id="ip_address_2" layoutX="78.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
       <TextField fx:id="ip_address_3" layoutX="128.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
-      <TextField fx:id="ip_address_4" layoutX="178.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
+      <TextField fx:id="ip_address_4" layoutX="178.0" layoutY="131.0" onMouseEntered="#inputIP" prefHeight="31.0" prefWidth="47.0" />
       <Label layoutX="26.0" layoutY="189.0" text="Host ID Bits" />
       <Label layoutX="27.0" layoutY="260.0" text="Subnet ID Bits" />
       <Label layoutX="28.0" layoutY="339.0" text="Mask bit" />
