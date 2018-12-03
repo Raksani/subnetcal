@@ -44,17 +44,17 @@ public class CalculatorUIController {
     @FXML
     private Button submit;
 
-    double assign =0.0;
-    int subnetID_bits =0, hostID_bits = 0;
+    static double assign;
+    static int subnetID_bits, hostID_bits;
     String classSelect;
     String assignSelect;
     String assignText;
-    int classBits_each;
-    ArrayList<Integer> subnetMask_each = new ArrayList<Integer>();
+    static int classBits_each;
+    static ArrayList<Integer> subnetMask_each = new ArrayList<Integer>();
 
     public void initialize(){
         if (assigneddrop != null) {
-            assigneddrop.getItems().addAll("Machines" , "Subnets");
+            assigneddrop.getItems().addAll("Machines" , "Networks");
             assigneddrop.getSelectionModel().select(0);
         }
     }
@@ -144,9 +144,9 @@ public class CalculatorUIController {
 
                 //show subnet mask.
                 String subnet_Mark = "";
-                for(int i=0;i<4;i++){
+                for(int i=0;i<=3;i++){
                     subnet_Mark += subnetMask_each.get(i);
-                    if(i<3) subnet_Mark += ",";
+                    if(i<3) subnet_Mark += ".";
                 }
                 subnet_mask.setText(subnet_Mark);
 
@@ -184,12 +184,14 @@ public class CalculatorUIController {
     public void getSubnetIDHostID(int classBits){
             if (assignSelect.equals("Machines")) {
                 assign = Math.ceil(Math.log(Double.parseDouble(assignText))/Math.log(2));
+                System.out.println("assign: "+assign);
                 subnetID_bits = (int) (classBits - assign);
                 hostID_bits = (int) assign;
                 host_id.setText(hostID_bits + "");
                 subnet_id.setText(subnetID_bits + "");
             } else {
-                assign = Math.log(Double.parseDouble(assignText))/Math.log(2);
+                assign = Math.ceil(Math.log(Double.parseDouble(assignText))/Math.log(2));
+                System.out.println("assign: "+assign);
                 subnetID_bits = (int) assign;
                 hostID_bits = (int) (classBits - assign);
                 host_id.setText(hostID_bits + "");
@@ -219,7 +221,7 @@ public class CalculatorUIController {
                         System.out.println("Error in subnet mask class c.");
                     }
                     else {
-                        for(int i=(hostID_bits-1);i>=0;i--){
+                        for(int i=7;(7-subnetID_bits)<i;i--){
                             last += Math.pow(2,i);
                         }
                         subnetMask.add(last);
@@ -230,6 +232,7 @@ public class CalculatorUIController {
     }
 
     public ArrayList<Integer> getSubnetMaskClassB(){
+        int subnetbits_test = subnetID_bits;
         ArrayList<Integer> subnetMask = new ArrayList<Integer>();
         int last = 0;
         int third = 0;
@@ -247,7 +250,8 @@ public class CalculatorUIController {
             //add second.
             subnetMask.add(255);
             // same like last of class c.
-            for(int i=(hostID_bits-1);i>=0;i--){
+            subnetID_bits = subnetID_bits-8;
+            for(int i=7;(7-subnetID_bits)<i;i--){
                 last += Math.pow(2,i);
             }
             // add the last one.
@@ -257,7 +261,7 @@ public class CalculatorUIController {
 
         //subnet id bits are less than 8. So, the third would be 1??????0 then the last would be 00000000
         else {
-            for(int i=(hostID_bits-1);i>=0;i--){
+            for(int i=7;(7-subnetID_bits)<i;i--){
                 third += Math.pow(2,i);
             }
             // add the third.
@@ -266,10 +270,13 @@ public class CalculatorUIController {
             subnetMask.add(0);
             //255.255.?.0
         }
+        //คืนค่า
+        subnetID_bits = subnetbits_test;
         return subnetMask;
     }
 
     public ArrayList<Integer> getSubnetMaskClassA() {
+        int subnetbits_test = subnetID_bits;
         ArrayList<Integer> subnetMask = new ArrayList<Integer>();
         int last = 0;
         int third = 0;
@@ -278,20 +285,32 @@ public class CalculatorUIController {
         subnetMask.add(255);
         //11111111 11111111 11111111
         if (subnetID_bits == 24) {
+            System.out.println("case24");
             subnetMask.add(255);
             subnetMask.add(255);
             subnetMask.add(255);
             //255.255.255.255
 
         } else if (subnetID_bits == 0) {
+            System.out.println(subnetID_bits);
+            System.out.println("case0");
             subnetMask.add(0);
             subnetMask.add(0);
             subnetMask.add(0);
             //255.0.0.0
+        }
+         else if (subnetID_bits == 16) {
+            System.out.println("case16");
+                subnetMask.add(255);
+                subnetMask.add(0);
+                subnetMask.add(0);
+                //255.255.0.0
+            }
 
-        } else if (subnetID_bits < 8) {
+         else if (subnetID_bits < 8) {
+            System.out.println("case<8");
             //be like 255. 1??????? 00000000 00000000
-            for(int i=(hostID_bits-1);i>=0;i--){
+            for(int i=7;(7-subnetID_bits)<i;i--){
                 second += Math.pow(2,i);
             }
             // add the second.
@@ -302,10 +321,13 @@ public class CalculatorUIController {
             //255.?.0.0
 
         } else if (subnetID_bits > 8 && subnetID_bits < 16) {
+            System.out.println("case8,16");
             //more than 8 then the second would be like 11111111
+            System.out.println(subnetID_bits);
             subnetMask.add(255);
             //and the third would be 1???????
-            for(int i=(hostID_bits-1);i>=0;i--){
+            subnetID_bits = subnetID_bits-8;
+            for(int i=7;(7-subnetID_bits)<i;i--){
                 third += Math.pow(2,i);
             }
             // add the third.
@@ -315,22 +337,24 @@ public class CalculatorUIController {
             //255.255.?.0
 
         } else if (subnetID_bits > 16 && subnetID_bits < 24) {
+            System.out.println("case16,24");
             //more than 16 then the second and third would be 11111111
             subnetMask.add(255);
             subnetMask.add(255);
-
-            for(int i=(hostID_bits-1);i>=0;i--){
+            subnetID_bits = subnetID_bits - 16;
+            for(int i=7;(7-subnetID_bits)<i;i--){
                 last += Math.pow(2,i);
             }
             // add the last one.
             subnetMask.add(last);
             //255.255.255.?
         }
+        //คืนค่า
+        subnetID_bits = subnetbits_test;
         return subnetMask;
     }
 
     public int getMaskBit(){
-        ArrayList<String> subnetIP = new ArrayList<>();
         int allsum=0;
         for(int i=0;i<4;i++){
             //convert int to binary
