@@ -12,7 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="603.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalculatorUIController">
+<AnchorPane prefHeight="603.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalculatorUIController">
    <children>
       <ImageView fitHeight="567.0" fitWidth="509.0" focusTraversable="true" layoutX="-13.0" layoutY="-1.0" opacity="0.54" pickOnBounds="true" smooth="false">
          <image>
@@ -46,10 +46,10 @@
       <TextField fx:id="broadcast" layoutX="26.0" layoutY="433.0" prefHeight="39.0" prefWidth="450.0" />
       <Label layoutX="25.0" layoutY="412.0" text="Broadcast" />
       <TextField fx:id="assignedfield" layoutX="266.0" layoutY="132.0" prefHeight="31.0" prefWidth="97.0" />
-      <ComboBox fx:id="assigneddrop" layoutX="367.0" layoutY="132.0" onAction="#selectAssign" prefHeight="39.0" prefWidth="112.0" />
-      <ToggleButton fx:id="classA" layoutX="152.0" layoutY="56.0" mnemonicParsing="false" onAction="#findSubnetIDHostID" prefHeight="39.0" prefWidth="35.0" text="A" />
-      <ToggleButton fx:id="classB" layoutX="202.0" layoutY="56.0" mnemonicParsing="false" onAction="#findSubnetIDHostID" prefHeight="39.0" prefWidth="35.0" text="B" />
-      <ToggleButton fx:id="classC" layoutX="252.0" layoutY="56.0" mnemonicParsing="false" onAction="#findSubnetIDHostID" prefHeight="39.0" prefWidth="35.0" text="C" />
+      <ComboBox fx:id="assigneddrop" layoutX="367.0" layoutY="132.0" prefHeight="39.0" prefWidth="112.0" />
+      <ToggleButton fx:id="classA" layoutX="152.0" layoutY="56.0" mnemonicParsing="false" onAction="#getSubnetIDHostID" prefHeight="39.0" prefWidth="35.0" text="A" />
+      <ToggleButton fx:id="classB" layoutX="202.0" layoutY="56.0" mnemonicParsing="false" onAction="#getSubnetIDHostID" prefHeight="39.0" prefWidth="35.0" text="B" />
+      <ToggleButton fx:id="classC" layoutX="252.0" layoutY="56.0" mnemonicParsing="false" onAction="#getSubnetIDHostID" prefHeight="39.0" prefWidth="35.0" text="C" />
       <Button fx:id="submit" layoutX="-5.0" layoutY="498.0" mnemonicParsing="false" onAction="#inputIP" prefHeight="54.0" prefWidth="496.0" text="Submit" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>

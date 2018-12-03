@@ -59,6 +59,7 @@ public class CalculatorUIController {
         }
     }
 
+    @FXML
     public void setErrorInput(String error){
 
         if (error.equals("class")){
@@ -163,6 +164,7 @@ public class CalculatorUIController {
 
         }
 
+    @FXML
     public void getSubnetIDHostID(int classBits){
             if (assignSelect.equals("Machines")) {
                 assign = Math.log(Double.parseDouble(assignText));
