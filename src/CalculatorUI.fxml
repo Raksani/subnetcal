@@ -36,20 +36,22 @@
       <TextField fx:id="ip_address_3" layoutX="128.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
       <TextField fx:id="ip_address_4" layoutX="178.0" layoutY="131.0" prefHeight="31.0" prefWidth="47.0" />
       <Label layoutX="26.0" layoutY="189.0" text="Host ID Bits" />
-      <Label layoutX="27.0" layoutY="260.0" text="Subnet ID Bits" />
-      <Label layoutX="28.0" layoutY="339.0" text="Mask bit" />
-      <Label layoutX="263.0" layoutY="338.0" text="Subnet mask" />
-      <TextField fx:id="host_id" layoutX="26.0" layoutY="210.0" prefHeight="39.0" prefWidth="450.0" />
-      <TextField fx:id="subnet_id" layoutX="26.0" layoutY="281.0" prefHeight="39.0" prefWidth="450.0" />
-      <TextField fx:id="mask_bit" layoutX="26.0" layoutY="360.0" />
-      <TextField fx:id="subnet_mask" layoutX="263.0" layoutY="360.0" />
+      <Label layoutX="268.0" layoutY="189.0" text="Subnet ID Bits" />
+      <Label layoutX="30.0" layoutY="262.0" text="Mask bit" />
+      <Label layoutX="262.0" layoutY="262.0" text="Subnet mask" />
+      <TextField fx:id="host_id" layoutX="26.0" layoutY="210.0" prefHeight="39.0" prefWidth="187.0" />
+      <TextField fx:id="subnet_id" layoutX="263.0" layoutY="210.0" prefHeight="39.0" prefWidth="187.0" />
+      <TextField fx:id="mask_bit" layoutX="26.0" layoutY="286.0" />
+      <TextField fx:id="subnet_mask" layoutX="263.0" layoutY="286.0" />
       <TextField fx:id="broadcast" layoutX="26.0" layoutY="433.0" prefHeight="39.0" prefWidth="450.0" />
-      <Label layoutX="25.0" layoutY="412.0" text="Broadcast" />
+      <Label layoutX="25.0" layoutY="412.0" text="Last Broadcast" />
       <TextField fx:id="assignedfield" layoutX="266.0" layoutY="132.0" prefHeight="31.0" prefWidth="97.0" />
       <ComboBox fx:id="assigneddrop" layoutX="367.0" layoutY="132.0" prefHeight="39.0" prefWidth="112.0" />
       <ToggleButton fx:id="classA" layoutX="152.0" layoutY="56.0" mnemonicParsing="false" onAction="#checkSingleClass" prefHeight="39.0" prefWidth="35.0" text="A" />
       <ToggleButton fx:id="classB" layoutX="202.0" layoutY="56.0" mnemonicParsing="false" onAction="#checkSingleClass" prefHeight="39.0" prefWidth="35.0" text="B" />
       <ToggleButton fx:id="classC" layoutX="252.0" layoutY="56.0" mnemonicParsing="false" onAction="#checkSingleClass" prefHeight="39.0" prefWidth="35.0" text="C" />
       <Button fx:id="submit" layoutX="-5.0" layoutY="498.0" mnemonicParsing="false" onAction="#inputIP" prefHeight="54.0" prefWidth="496.0" text="Submit" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="29.0" layoutY="343.0" text="First address" />
+      <TextField fx:id="first_add" layoutX="27.0" layoutY="364.0" prefHeight="39.0" prefWidth="450.0" />
    </children>
 </AnchorPane>

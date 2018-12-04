@@ -34,6 +34,8 @@ public class CalculatorUIController {
     @FXML
     private TextField subnet_mask;
     @FXML
+    private TextField first_add;
+    @FXML
     private TextField broadcast;
     @FXML
     private TextField errorClass;
@@ -88,6 +90,27 @@ public class CalculatorUIController {
         }
 
     }
+    public void invalid () {
+        if (ip_address_1.getText().isEmpty() || ip_address_2.getText().isEmpty() || ip_address_3.getText().isEmpty() || ip_address_4.getText().isEmpty()) {
+            ip_address_1.setStyle("-fx-border-color: red");
+            ip_address_2.setStyle("-fx-border-color: red");
+            ip_address_3.setStyle("-fx-border-color: red");
+            ip_address_4.setStyle("-fx-border-color: red");
+
+        }
+        if (ip_address_1.getText().length() > 3 || ip_address_2.getText().length() > 3 || ip_address_3.getText().length() > 3 || ip_address_4.getText().length() > 3) {
+            ip_address_1.setStyle("-fx-border-color: red");
+            ip_address_2.setStyle("-fx-border-color: red");
+            ip_address_3.setStyle("-fx-border-color: red");
+            ip_address_4.setStyle("-fx-border-color: red");
+        } else {
+            ip_address_1.setStyle("-fx-border-color: grey");
+            ip_address_2.setStyle("-fx-border-color: grey");
+            ip_address_3.setStyle("-fx-border-color: grey");
+            ip_address_4.setStyle("-fx-border-color: grey");
+
+        }
+    }
 
     public boolean errorInput(){
                 //recheck again.
@@ -133,23 +156,29 @@ public class CalculatorUIController {
         if (classA.isSelected()) {
             classSelect = "a";
             subnetMask_each = getSubnetMaskClassA();
+            first_add.setText(ip_address_1.getText()+":0:0:1");
+            broadcast.setText(ip_address_1.getText()+":255:255:255");
         }
 
         if (classB.isSelected()) {
             classSelect = "b";
             subnetMask_each = getSubnetMaskClassB();
+            first_add.setText(ip_address_1.getText()+":"+ip_address_2.getText()+":0:1");
+            broadcast.setText(ip_address_1.getText()+":"+ip_address_2.getText()+":255:255");
         }
 
         if (classC.isSelected()) {
             classSelect = "c";
             subnetMask_each = getSubnetMaskClassC();
+            first_add.setText(ip_address_1.getText()+":"+ip_address_2.getText()+":"+ip_address_3.getText()+":0:1");
+            broadcast.setText(ip_address_1.getText()+":"+ip_address_2.getText()+":"+ip_address_3.getText()+":255");
         }
     }
 
     @FXML
     public void inputIP(){
+        invalid();
         subnetMask_each.clear();
-        System.out.println(subnetMask_each.toString());
         //check error
         if(errorInput()){
            //collect input data.

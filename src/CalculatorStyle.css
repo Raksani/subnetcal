@@ -157,3 +157,9 @@
     -fx-opacity:0.2;
     -fx-text-fill:grey;
 }
+
+#first_add{
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
