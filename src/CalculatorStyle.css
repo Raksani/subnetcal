@@ -1,0 +1,159 @@
+.root {
+    -fx-background-color: transparent;
+    -fx-font-family: "Segoe UI Light";
+}
+
+
+#subnet{
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-color: #b9d7f2;
+    -fx-font-size: 20px;
+}
+#ip_address_1 {
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+#ip_address_2 {
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+#ip_address_3 {
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+#ip_address_4 {
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+
+#ip_address_1:selected{
+    -fx-border-color: lightblue;
+    -fx-border-radius: 16px;
+
+}
+#classA{
+    -fx-background-color: transparent;
+    -fx-border-color: grey;
+    -fx-border-radius:10px;
+}
+
+#classB{
+    -fx-background-color: transparent;
+    -fx-border-color: grey;
+    -fx-border-radius:10px;
+}
+
+#classC{
+    -fx-background-color: transparent;
+    -fx-border-color: grey;
+    -fx-border-radius:10px;
+}
+#classA:hover{
+    -fx-background-color: white;
+        -fx-background-radius:10px;
+        -fx-text-fill:grey;
+        -fx-opacity: 50%;
+        -fx-border-radius: 10px;
+}
+
+#classB:hover{
+   -fx-background-color: white;
+       -fx-background-radius:10px;
+       -fx-text-fill:grey;
+       -fx-opacity: 50%;
+       -fx-border-radius: 10px;
+}
+
+#classC:hover{
+    -fx-background-color: white;
+    -fx-background-radius:10px;
+    -fx-text-fill:grey;
+    -fx-opacity: 50%;
+    -fx-border-radius: 10px;
+}
+
+#classA:selected{
+    -fx-border-radius: 10px;
+    -fx-background-color:grey;
+    -fx-text-fill:white;
+    -fx-background-radius:10px;
+}
+#classB:selected{
+    -fx-border-radius: 10px;
+    -fx-background-color:grey;
+    -fx-text-fill:white;
+    -fx-background-radius:10px;
+}
+#classC:selected{
+    -fx-border-radius: 10px;
+    -fx-background-color:grey;
+    -fx-text-fill:white;
+    -fx-background-radius:10px;
+}
+
+#assignedfield{
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+
+#subnet_mask{
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+#host_id{
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+#subnet_id{
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+
+#mask_bit{
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+
+#broadcast{
+    -fx-border-color: grey;
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+}
+
+#assigneddrop{
+    -fx-border-color: grey;
+    -fx-background-color: #d4f1ff;
+    -fx-border-radius: 10px;
+    -fx-background-radius:10px;
+
+}
+
+#assigneddrop:hover
+{
+    -fx-background-color:white;
+    -fx-opacity:40%;
+    -fx-background-radius:10px;
+}
+
+#submit {
+    -fx-border-color: lightblue;
+    -fx-background-color:lightblue;
+    -fx-text-fill:grey;
+    -fx-font-size:25px;
+}
+
+#submit:hover {
+    -fx-border:none;
+    -fx-background-color:white;
+    -fx-opacity:0.2;
+    -fx-text-fill:grey;
+}
