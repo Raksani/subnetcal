@@ -4,8 +4,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-
-import java.awt.*;
 import java.util.ArrayList;
 
 public class CalculatorUIController {
@@ -148,15 +146,12 @@ public class CalculatorUIController {
                 String subnet_Mark = "";
                 for(int i=0;i<4;i++){
                     subnet_Mark += subnetMask_each.get(i);
-
+                    if(i<3) subnet_Mark += ":";
                 }
                 subnet_mask.setText(subnet_Mark);
 
                 //show mask bits
                 mask_bit.setText(getMaskBit()+"");
-
-
-
 
 
             }
@@ -185,13 +180,13 @@ public class CalculatorUIController {
     @FXML
     public void getSubnetIDHostID(int classBits){
             if (assignSelect.equals("Machines")) {
-                assign = (Math.log(Double.parseDouble(assignText))/Math.log(2));
+                assign = Math.ceil(Math.log(Double.parseDouble(assignText))/Math.log(2));
                 subnetID_bits = (int) (classBits - assign);
                 hostID_bits = (int) assign;
                 host_id.setText(hostID_bits + "");
                 subnet_id.setText(subnetID_bits + "");
             } else {
-                assign = Math.log(Double.parseDouble(assignText))/Math.log(2);
+                assign = Math.ceil(Math.log(Double.parseDouble(assignText))/Math.log(2));
                 subnetID_bits = (int) assign;
                 hostID_bits = (int) (classBits - assign);
                 host_id.setText(hostID_bits + "");
