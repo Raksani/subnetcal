@@ -146,11 +146,7 @@ public class CalculatorUIController {
                 }
                 return true;
             }
-//    @FXML
-//    public void inputIP(javafx.event.ActionEvent event) {
-//        errorInput(event);
-//
-//    }
+
     public void subnetMaskCal () {
         subnetMask_each.clear();
         if (classA.isSelected()) {
@@ -220,6 +216,7 @@ public class CalculatorUIController {
         }
         if (classB.isSelected()) {
             classBits_each = 16;
+            ip_address_2.setText("");
             ip_address_3.setText("0");
             ip_address_4.setText("0");
             classA.setSelected(false);
@@ -227,6 +224,8 @@ public class CalculatorUIController {
         }
         if (classC.isSelected()){
             classBits_each = 8;
+            ip_address_2.setText("");
+            ip_address_3.setText("");
             ip_address_4.setText("0");
             classA.setSelected(false);
             classB.setSelected(false);
